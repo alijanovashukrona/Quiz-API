@@ -5,3 +5,7 @@ from .models import Question
 def home(request):
     questions = Question.objects.all()
     return render(request, 'home.html', {'questions':questions})
+
+def question_detail(request, id):
+    question = Question.objects.get(id=id)
+    return render (request, 'question_detail.html',{'question':question})

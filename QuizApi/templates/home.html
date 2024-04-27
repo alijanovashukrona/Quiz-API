@@ -7,7 +7,9 @@
 <body>
     <ul>
         {%for question in questions%}
-        <li>{{ question.text }}</li>
+        <li>
+            <a href="{% url 'question_detail' question.id %}">{{question.text}}</a>
+        </li>
         {% endfor %}
     </ul>
 

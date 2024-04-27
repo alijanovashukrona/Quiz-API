@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {{ question.text }}
+    <form method="post"> {% csrf_token %}
+        <ul>
+            {% for choice in question.choice_set.all %}
+                <li>
+                    <label for="{{ choice.id }}">{{ choice.text }}</label>
+                    <input id="{{ choice.id }}" value="{{ choice.id }}" type="radio" name="{{ question.id }}">  - ovozlar soni {{ choice.count }}
+                </li>
+            {% endfor %}
+
+        </ul>
+        <button type="submit">vote</button>
+    </form>
+</body>
+</html>
