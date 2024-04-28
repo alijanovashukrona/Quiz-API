@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        *{
+        font-size:50px;
+        }
+    </style>
 </head>
 <body>
     {{ question.text }}
@@ -11,7 +16,7 @@
             {% for choice in question.choice_set.all %}
                 <li>
                     <label for="{{ choice.id }}">{{ choice.text }}</label>
-                    <input id="{{ choice.id }}" value="{{ choice.id }}" type="radio" name="{{ question.id }}">  - ovozlar soni {{ choice.count }}
+                    <input id="{{ choice.id }}" value="{{ choice.id }}" type="radio" name="choice">  - ovozlar soni {{ choice.count }}
                 </li>
             {% endfor %}
 
